@@ -1,14 +1,6 @@
 import java.util.Comparator;
 
-public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
-    int height;
-    int volume;
-    int baseArea;
-
-    @Override
-    public int compareTo(Shape s) {
-        return compare(this, s);
-    }
+public class BaseAreaComp implements Comparator<Shape> {
 
     @Override
     public int compare(Shape s1, Shape s2) {
@@ -16,4 +8,5 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
         result = s1.baseArea == s2.baseArea ? 0 : s1.baseArea > s2.baseArea ? 1 : -1;
         return result;
     }
+
 }
