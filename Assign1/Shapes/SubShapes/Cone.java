@@ -1,3 +1,6 @@
+package Shapes.SubShapes;
+
+import Shapes.Shape;
 
 public class Cone extends Shape {
 

@@ -1,4 +1,7 @@
+package Comparator;
+
 import java.util.Comparator;
+import Shapes.Shape;
 
 public class BaseAreaComp implements Comparator<Shape> {
 
