@@ -5,13 +5,15 @@ import java.util.Comparator;
 public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
 
     public double height;
+    public double sideOrLength;
     public double volume;
     public double baseArea;
 
-    public Shape (double newHeight, double newVolume, double newBaseArea){
+    //shapes are read in from the text file with a height value
+    // and a side or length, depending on the shape
+    public Shape (double newHeight, double newSideOrLength){
         height = newHeight;
-        volume = newVolume;
-        newBaseArea = baseArea;
+        sideOrLength = newSideOrLength;
     }
 
     public double getHeight(){
