@@ -37,7 +37,7 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
             return 1;
         }
         //if the second shape's height is greater, return -1
-        if (secondShape.getHeight() > this.getHeight()){
+        if (this.getHeight() < secondShape.getHeight()){
             return -1;
         }
         //if they are equal return 0
@@ -55,7 +55,7 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
             return 1;
         }
         //if the second shape's volume is greater, return -1
-        if (secondShape.getHeight() > firstShape.getVolume()){
+        if (firstShape.getVolume() < secondShape.getVolume()){
             return -1;
         }
         //if they are equal return 0
