@@ -1,10 +1,12 @@
 package Shapes.SubPrisms;
-
 import Shapes.Prism;
 
 public class SquareP extends Prism {
-	public double side;
-	public double height;
-	public double baseArea = Math.pow(side,2.0);
-	public double volume = Math.pow(side,2.0) * height; 
+
+	public SquareP (double newHeight, double newSideLengthRadius){
+	this.height = newHeight;
+	this.sideLengthRadius = newSideLengthRadius;
+	this.baseArea = Math.pow(this.sideLengthRadius,2.0);
+	this.volume = Math.pow(this.sideLengthRadius,2.0) * this.height; 
+	}
 }

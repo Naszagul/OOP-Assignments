@@ -1,8 +1,11 @@
 package Shapes.SubPrisms;
-
-public class OctagonP {
-	public double side;
-	public double height;
-	public double baseArea = 2.0 (1.0 + Math.sqrt(2.0)) * Math.pow(side,2);
-	public double volume = baseArea * height;
+import Shapes.Prism;
+public class OctagonP extends Prism{
+	
+	public OctagonP (double newHeight, double newSideLengthRadius){
+	this.height = newHeight;
+	this.sideLengthRadius = newSideLengthRadius;
+	this.baseArea = 2.0 * (1.0 + Math.sqrt(2.0)) * Math.pow(this.sideLengthRadius,2.0);
+	this.volume = this.baseArea * this.height;
+	}
 }

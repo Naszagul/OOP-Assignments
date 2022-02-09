@@ -5,16 +5,16 @@ import java.util.Comparator;
 public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
 
     public double height;
-    public double sideOrLength;
+    public double sideLengthRadius;
     public double volume;
     public double baseArea;
 
     //shapes are read in from the text file with a height value
     // and a side or length, depending on the shape
-    public Shape (double newHeight, double newSideOrLength){
-        height = newHeight;
-        sideOrLength = newSideOrLength;
-    }
+    // public Shape (double newHeight, double newSideLengthRadius){
+    //     height = newHeight;
+    //     sideLengthRadius = newSideLengthRadius;
+    // }
 
     public double getHeight(){
         return this.height;
@@ -29,15 +29,15 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
     }
     
     //Use the compareTo method to compare two shapes by height
-    //@Override
-    public int compareTo(Shape firstShape, Shape secondShape) {
+    @Override
+    public int compareTo(Shape secondShape) {
 
         //if the first shape's height is greater, return 1
-        if (firstShape.getHeight() > secondShape.getHeight()){
+        if (this.getHeight() > secondShape.getHeight()){
             return 1;
         }
         //if the second shape's height is greater, return -1
-        if (secondShape.getHeight() > firstShape.getHeight()){
+        if (secondShape.getHeight() > this.getHeight()){
             return -1;
         }
         //if they are equal return 0
