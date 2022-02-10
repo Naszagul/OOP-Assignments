@@ -19,7 +19,7 @@ public class AppDriver {
         String title;
         double height;
         double sideLengthRadius;
-        boolean continueInput = true;
+        //boolean continueInput = true;
 
         //add stuff
         while (i < arraySize){
@@ -27,9 +27,44 @@ public class AppDriver {
             title = scanShapes.next();
             height = Double.valueOf(scanShapes.next());
             sideLengthRadius = Double.valueOf(scanShapes.next());
-            Shape newShape = new Cylinder (title, height, sideLengthRadius);
-            shapeArray [i] = newShape;
+
+            //creating the shape based on the title
+            if (title.equals("Cylinder")){
+                Shape newShape = new Cylinder (title, height, sideLengthRadius);
+                shapeArray [i] = newShape;
+            }
             
+            else if (title.equals("Pyramid")){
+                Shape newShape = new Pyramid (title, height, sideLengthRadius);
+                shapeArray [i] = newShape;
+            }
+
+            else if (title.equals("Cone")){
+                Shape newShape = new Cone (title, height, sideLengthRadius);
+                shapeArray [i] = newShape;
+            }
+
+            else if (title.equals("OctagonalPrism")){
+                Shape newShape = new OctagonP (title, height, sideLengthRadius);
+                shapeArray [i] = newShape;
+            }
+
+            else if (title.equals("PentagonalPrism")){
+                Shape newShape = new PentagonP (title, height, sideLengthRadius);
+                shapeArray [i] = newShape;
+            }
+
+            else if (title.equals("SquarePrism")){
+                Shape newShape = new SquareP (title, height, sideLengthRadius);
+                shapeArray [i] = newShape;
+            }
+
+            //if it's not anything else, it's a Triangle
+            else{
+                Shape newShape = new TriangleP (title, height, sideLengthRadius);
+                shapeArray [i] = newShape;
+            }
+
             //as per assignment every 1000th item is printed
             if (i % 1000 == 0){
                 Shape printShape = shapeArray [i];
