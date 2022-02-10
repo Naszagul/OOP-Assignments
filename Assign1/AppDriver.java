@@ -1,5 +1,6 @@
 
 import Shapes.*;
+import Sorters.*;
 import Shapes.SubShapes.*;
 import Shapes.SubPrisms.*;
 import java.util.*;
@@ -7,7 +8,7 @@ import java.io.*;
 
 public class AppDriver {
 
-    public static void main(String[] args) throws FileNotFoundException{
+    public static void main (String[] args) throws FileNotFoundException{
         //declaring file to read from
         File shapeFile = new File ("D:/Sem3/adv_oop/Assignment1/polyfor1.txt");
         Scanner scanShapes = new Scanner (shapeFile);
@@ -33,7 +34,7 @@ public class AppDriver {
                 Shape newShape = new Cylinder (title, height, sideLengthRadius);
                 shapeArray [i] = newShape;
             }
-            
+
             else if (title.equals("Pyramid")){
                 Shape newShape = new Pyramid (title, height, sideLengthRadius);
                 shapeArray [i] = newShape;
@@ -65,16 +66,28 @@ public class AppDriver {
                 shapeArray [i] = newShape;
             }
 
-            //as per assignment every 1000th item is printed
-            if (i % 1000 == 0){
-                Shape printShape = shapeArray [i];
-                System.out.println(printShape.getTitle());
-                System.out.println(printShape.getHeight());
-                System.out.println(printShape.getBaseArea());
-                System.out.println(printShape.getVolume());
+            //as per assignment every first, last and 1000th item is printed
+            if ( i==0 || i==arraySize -1 ||i % 1000 == 0 ){
+                System.out.println(shapeArray[i].getHeight());
+                // Shape printShape = shapeArray [i];
+                // System.out.println(printShape.getTitle());
+                // System.out.println(printShape.getHeight());
+                // System.out.println(printShape.getBaseArea());
+                // System.out.println(printShape.getVolume());
+                if (i==arraySize -1){
+                    System.out.println("------");
+                }
             }
             i++;
         }
+        //sort the array
+        Shape [] sortedShapeArray = AllSorts.bubbleSort(shapeArray);
+        //print the first, last, and every 1000th item to reference
+        for (int k=0 ; k < arraySize -1 ; k++){
 
+            if ( k==0 || k==arraySize -1 ||k % 1000 == 0 ){
+                System.out.println(sortedShapeArray[k].getHeight());
+            }
+        }
     }
 }

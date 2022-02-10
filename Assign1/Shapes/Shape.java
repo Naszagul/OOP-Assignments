@@ -49,17 +49,18 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
             return 0;
         }
     }
+    
     //Use the compare method to compare two shapes by baseArea + volume
     //we use baseArea to find volume, we'll sort by that
-    @Override
-    public int compare(Shape firstShape, Shape secondShape){
+    //@Override
+    public int compare(Shape secondShape){
         
         //if the first shape's volume is greater, return 1
-        if (firstShape.getVolume() > secondShape.getVolume()){
+        if (this.getVolume() > secondShape.getVolume()){
             return 1;
         }
         //if the second shape's volume is greater, return -1
-        if (firstShape.getVolume() < secondShape.getVolume()){
+        if (this.getVolume() < secondShape.getVolume()){
             return -1;
         }
         //if they are equal return 0
@@ -67,5 +68,4 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
             return 0;
         }
     }
-
 }
