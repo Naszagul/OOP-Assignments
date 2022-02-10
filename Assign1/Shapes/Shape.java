@@ -8,7 +8,7 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
     public double sideLengthRadius;
     public double volume;
     public double baseArea;
-
+    public String title;
     //shapes are read in from the text file with a height value
     // and a side or length, depending on the shape
     // public Shape (double newHeight, double newSideLengthRadius){
@@ -18,6 +18,10 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
 
     public double getHeight(){
         return this.height;
+    }
+
+    public String getTitle(){
+        return this.title;
     }
 
     public double getVolume(){

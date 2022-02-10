@@ -4,7 +4,8 @@ import Shapes.Shape;
 
 public class Pyramid extends Shape {
 
-	public Pyramid (double newHeight, double newSideLengthRadius){
+	public Pyramid (String newTitle, double newHeight, double newSideLengthRadius){
+		this.title = newTitle;
 		this.height = newHeight;
 		this.sideLengthRadius = newSideLengthRadius;
 		this.baseArea = Math.pow(sideLengthRadius,2.0);

@@ -15,5 +15,8 @@ public abstract class Prism extends Shape {
     public double getBaseArea(){
         return this.baseArea;
     }
-
+    
+     public String getTitle(){
+        return this.title;
+    }
 }
