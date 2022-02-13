@@ -1,18 +1,19 @@
 package Shapes;
+
 import Shapes.*;
-import Shapes.Comparator.*;
+import Comparator.*;
 
 public abstract class Prism extends Shape {
 
-    public double getHeight(){
+    public double getHeight() {
         return this.height;
     }
 
-    public double getVolume(){
+    public double getVolume() {
         return this.volume;
     }
 
-    public double getBaseArea(){
+    public double getBaseArea() {
         return this.baseArea;
     }
 

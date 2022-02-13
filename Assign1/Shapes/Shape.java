@@ -8,60 +8,64 @@ public abstract class Shape implements Comparable<Shape>, Comparator<Shape> {
     public double sideLengthRadius;
     public double volume;
     public double baseArea;
-
-    //shapes are read in from the text file with a height value
+    public String title;
+    // shapes are read in from the text file with a height value
     // and a side or length, depending on the shape
     // public Shape (double newHeight, double newSideLengthRadius){
-    //     height = newHeight;
-    //     sideLengthRadius = newSideLengthRadius;
+    // height = newHeight;
+    // sideLengthRadius = newSideLengthRadius;
     // }
 
-    public double getHeight(){
+    public double getHeight() {
         return this.height;
     }
 
-    public double getVolume(){
+    public String getTitle() {
+        return this.title;
+    }
+
+    public double getVolume() {
         return this.volume;
     }
 
-    public double getBaseArea(){
+    public double getBaseArea() {
         return this.baseArea;
     }
-    
-    //Use the compareTo method to compare two shapes by height
+
+    // Use the compareTo method to compare two shapes by height
     @Override
     public int compareTo(Shape secondShape) {
 
-        //if the first shape's height is greater, return 1
-        if (this.getHeight() > secondShape.getHeight()){
+        // if the first shape's height is greater, return 1
+        if (this.getHeight() > secondShape.getHeight()) {
             return 1;
         }
-        //if the second shape's height is greater, return -1
-        if (secondShape.getHeight() > this.getHeight()){
+        // if the second shape's height is greater, return -1
+        if (this.getHeight() < secondShape.getHeight()) {
             return -1;
         }
-        //if they are equal return 0
+        // if they are equal return 0
         else {
             return 0;
         }
     }
-    //Use the compare method to compare two shapes by baseArea + volume
-    //we use baseArea to find volume, we'll sort by that
-    @Override
-    public int compare(Shape firstShape, Shape secondShape){
-        
-        //if the first shape's volume is greater, return 1
-        if (firstShape.getVolume() > secondShape.getVolume()){
+
+    // Use the compare method to compare two shapes by baseArea + volume
+    // we use baseArea to find volume, we'll sort by that
+    // @Override
+    public int compare(Shape secondShape) {
+
+        // if the first shape's volume is greater, return 1
+        if (this.getVolume() > secondShape.getVolume()) {
             return 1;
         }
-        //if the second shape's volume is greater, return -1
-        if (secondShape.getHeight() > firstShape.getVolume()){
+        // if the second shape's volume is greater, return -1
+        if (this.getVolume() < secondShape.getVolume()) {
             return -1;
         }
-        //if they are equal return 0
-        else{
+        // if they are equal return 0
+        else {
             return 0;
         }
     }
-
 }
