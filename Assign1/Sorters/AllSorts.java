@@ -121,11 +121,70 @@ public class AllSorts {
 
     }
 
-    public static void quickSort(Shape[] inputArray) {
-
+    public static Shape[] quickSort(Shape inputArray[], int start, int end) {
+        if (start < end) {
+            int partitionIndex = partition(inputArray, start, end);
+            quickSort(inputArray, start, partitionIndex - 1);
+            quickSort(inputArray, partitionIndex + 1, end);
+        }
+        return inputArray;
     }
 
-    public static void radixSort(Shape[] inputArray) {
+    public static int partition(Shape inputArray[], int start, int end) {
+        Shape pivot = inputArray[end];
+        int i = (start - 1);
 
+        for (int j = start; j <= end - 1; j++) {
+            if (inputArray[j].compareTo(pivot) == -1) {
+                i++;
+                Shape temp = inputArray[i];
+                inputArray[i] = inputArray[j];
+                inputArray[j] = temp;
+            }
+        }
+
+        Shape temp = inputArray[i + 1];
+        inputArray[i + 1] = inputArray[end];
+        inputArray[end] = temp;
+
+        return i + 1;
     }
+
+    public static Shape retrieveMax(Shape[] inputArray, int k) {
+        Shape max = inputArray[0];
+        for (int i = 1; i < k; i++)
+            if (inputArray[i].compareTo(max) == 1)
+                max = inputArray[i];
+        return max;
+    }
+
+    public static void countArray(Shape[] inputArray, int k, int dig) {
+        Shape[] out = new Shape[k];
+        int i;
+        int count[] = new int[10];
+        Arrays.fill(count, 0);
+        for (i = 0; i < k; i++) {
+            count[(int) ((inputArray[i].getHeight() / dig) % 10)]++;
+        }
+
+        for (i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+        for (i = k - 1; i >= 0; i--) {
+            out[count[(int) ((inputArray[i].getHeight() / dig) % 10)] - 1] = inputArray[i];
+            count[(int) ((inputArray[i].getHeight() / dig) % 10)]--;
+        }
+        for (i = 0; i < k; i++)
+            for (i = 0; i < k; i++)
+                inputArray[i] = out[i];
+    }
+
+    public static Shape[] radixSort(Shape[] inputArray, int k) {
+        Shape m = retrieveMax(inputArray, k);
+        for (var dig = 1; (m.getHeight() / dig) > 0; dig *= 10)
+            countArray(inputArray, k, dig);
+
+        return inputArray;
+    }
+
 }
